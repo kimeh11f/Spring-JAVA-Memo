@@ -13,5 +13,8 @@
 -> 주요상태코드 (200:OK, 404:NOT FOUND, 500:Internal Server Error]  
 2.Response Header : [CONTENT-TYPE : TEXT/HTML] [DATE : MON, 27, FEB 2006] [SERVER: APACHE-COYOTE/1.1] ...  
 -> 응답처리 날짜, 인코딩 방식, 요청 서버 정보 등과 같은 추가정보를 갖는다.  
-3.Response Body : <HTML><HEAD><TITLE></TITLE></HEAD><BODY></BODY></HTML>  
+3.Response Body : 
+```html
+<HTML><HEAD><TITLE></TITLE></HEAD><BODY></BODY></HTML>
+```
 -> 응답에 필요한 내용을 갖는다. 일반적으로 HTML 문서이다.   
