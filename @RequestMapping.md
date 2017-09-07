@@ -44,13 +44,3 @@ public class UserController{
 ```
 위와같이, @Controller를 사용하여 빈자동스캔방식으로 등록되게 했다면, @RequestMapping을 생략가능하다.  
 스프링이 애노테이션방식을 사용한 클래스라고 판단하기 때문이다.
-
-###### 메소드 이름을 이용한 매핑
-```
-@RequestMapping("/user/*")
-public class UserController{
-  @RequestMapping public String add(...){}
-  @RequestMapping public String edit(...){}
- }
-```
-위와같이 URL패턴이 /*로 끝나는경우, 빈 @RequestMapping만 부여해주면, 메소드이름이 URL대신 적용되서 각각 /user/add와 /user/edit으로 매핑된다.
