@@ -1,4 +1,4 @@
-# XML설정파일의 편의성
+# XML설정파일을 통한 의존설정의 편의성
 ```
 public class CarTester {
 	public static void main(String[] args){
