@@ -33,9 +33,11 @@ ConfigurationClassBeanPostProcessor : @Configuration 애노테이션 처리
 이러한 빈을 따로 등록할 필요가 없어진다.  
 빈 후처리기는 새로운 빈을 등록해주지는 않지만, 애노테이션 의존관계 정보를 읽어서 이미 등록된 빈의 메타정보에 프로퍼티 항목을 추가해주는 작업을 한다.
 ```
-AppicationContext ctx = new AnnotationConfigApplicationContext(JavaConf.class);
+AppicationContext ctx = new AnnotationConfigApplicationContext(JavaConf.class); //또는
+AppicationContext ctx = new AnnotationConfigWebApplicationContext(JavaConf.class);
 ```
-위와같이, 애플리케이션 컨텍스트 사용을 JAVA클래스파일로 했을경우, 애노테이션사용은 자동으로 활성화된다.
+위와같이, 애플리케이션 컨텍스트를 AnnotationConfigApplicationContext나 AnnotationConfigWebApplicationContext 로  
+JAVA클래스파일로 했을경우, 애노테이션을 통한 DI 설정은 자동으로 활성화된다.
 JAVA설정에서 XML설정을 임포트하려면
 ```
 @Configuration
