@@ -1,4 +1,4 @@
-# @RestController, @Controller, @ResponseBody 
+# @RestController, @Controller
 
 ```
 @Controller
