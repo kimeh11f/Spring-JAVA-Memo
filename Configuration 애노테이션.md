@@ -22,10 +22,15 @@ xsi:schemaLocation="http://www.springframework.org/schema/context
 위와같이, xml파일에 해당 java설정클래스를 bean으로 등록해준다. 그럼, xml설정파일에 JAVA설정을 IMPORT해서 사용가능하다.  
 ```<context:annotation-config/>```를 통해서 아래의 BeanPostProcessor들이 등록되어 애노테이션을 인식하게 된다.  
 RequiredAnnotationBeanPostProcessor : @Required 애노테이션 처리  
-AutowiredAnnotationBeanPostProcessor : @Autowired 애노테이션 처리  
-CommonAnnotationBeanPostProcessor : @Resource, @PostConstruct,@PreDestroy 애노테이션 처리  
-ConfigurationClassBeanPostProcessor : @Configuration 애노테이션 처리  
 
+AutowiredAnnotationBeanPostProcessor : @Autowired 애노테이션 처리  
+
+CommonAnnotationBeanPostProcessor : @Resource, @PostConstruct,@PreDestroy 애노테이션 처리  
+
+ConfigurationClassBeanPostProcessor : @Configuration 애노테이션 처리  
+
+예를들어, ```<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>``` 
+이러한 빈을 따로 등록할 필요가 없어진다.  
 빈 후처리기는 새로운 빈을 등록해주지는 않지만, 이미 등록된 빈의 메타정보에 프로퍼티 항목을 추가해주는 작업을 한다.
 ```
 AppicationContext ctx = new AnnotationConfigApplicationContext(JavaConf.class);
