@@ -31,7 +31,7 @@ ConfigurationClassBeanPostProcessor : @Configuration 애노테이션 처리
 
 예를들어, ```<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>``` 
 이러한 빈을 따로 등록할 필요가 없어진다.  
-빈 후처리기는 새로운 빈을 등록해주지는 않지만, 이미 등록된 빈의 메타정보에 프로퍼티 항목을 추가해주는 작업을 한다.
+빈 후처리기는 새로운 빈을 등록해주지는 않지만, 애노테이션 의존관계 정보를 읽어서 이미 등록된 빈의 메타정보에 프로퍼티 항목을 추가해주는 작업을 한다.
 ```
 AppicationContext ctx = new AnnotationConfigApplicationContext(JavaConf.class);
 ```
