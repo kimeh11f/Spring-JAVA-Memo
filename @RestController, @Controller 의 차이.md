@@ -1,4 +1,4 @@
-# @RestController, @Controller 의 차이  
+# @RestController, @Controller, @ResponseBody 
 
 ```
 @Controller
