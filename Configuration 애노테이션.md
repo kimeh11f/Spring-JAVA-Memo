@@ -8,7 +8,7 @@ javaCode로 xml파일을 대신하여 설정을 할 수 있다.
 AppicationContext ctx = new GenericXmlApplicationContext("classpath:main-conf.xml");
 ```
 만약 위처럼 애플리케이션 컨텍스트에 XML 파일을 사용시에는  
-어떠한 애노테이션이더라도 사용가능하게 하려면, 
+애노테이션을 통한 의존관계를 설정하기 위해서 
 ```
 <beans xmlns:context="http://www.springframework.org/schema/context
 xsi:schemaLocation="http://www.springframework.org/schema/context
@@ -19,7 +19,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/context
 ```
 <bean class="config.JavaConf"/>
 ```
-위와같이, xml파일에 해당 java설정클래스를 bean으로 등록해준다. 그럼, xml설정파일에 JAVA설정을 IMPORT해서 사용가능하다.
+위와같이, xml파일에 해당 java설정클래스를 bean으로 등록해준다. 그럼, xml설정파일에 JAVA설정을 IMPORT해서 사용가능하다.  
+```<context:annotation-config/>```를 통해서 아래의 BeanPostProcessor들이 등록되어 애노테이션을 인식하게 된다.  
+RequiredAnnotationBeanPostProcessor : @Required 어노테이션 처리  
+AutowiredAnnotationBeanPostProcessor : @Autowired 어노테이션 처리  
+CommonAnnotationBeanPostProcessor : @Resource, @PostConstruct,@PreDestroy 어노테이션 처리  
+ConfigurationClassBeanPostProcessor : @Configuration 어노테이션 처리  
 
 ```
 AppicationContext ctx = new AnnotationConfigApplicationContext(JavaConf.class);
