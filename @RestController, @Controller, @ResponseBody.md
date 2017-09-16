@@ -30,6 +30,26 @@ public class MainController {
 위 소스는 브라우저 화면에 글씨가 띄워짐
 
 @RestController : 뷰가 필요없는 API만 지원하는 서비스에서 사용, @ResponseBody를 포함하고 있음  
+```
+    @RequestMapping("/a")
+    public ResponseEntity a(){
+        Test t = new test();
+        t.setName("홍길동");
+        t.setPassword("1234");
+        return new ResponseEntity<>(t, HttpStatus.CREATED);
+    }
+```
+@RestController의 경우, 객체로 return을 해주면, 
+```
+Content-Type:application/json;charset=UTF-8
+Date:Sat, 16 Sep 2017 11:28:21 GMT
+Transfer-Encoding:chunked
+```
+```
+{"name":"홍길동","password":"1234"}
+```
+위와 같이, 응답은 자동으로 json형식으로 넘어가게 된다.
+
 @Controller : API와 뷰를 동시에 사용, 대신 API 서비스는 @ResponseBody를 붙여줘야 함
 
 # @ResponseBody
