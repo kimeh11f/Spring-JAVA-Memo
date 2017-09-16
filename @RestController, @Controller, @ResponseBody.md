@@ -48,7 +48,36 @@ Transfer-Encoding:chunked
 ```
 {"name":"홍길동","password":"1234"}
 ```
-위와 같이, 응답은 자동으로 json형식으로 넘어가게 된다. @Controller클래스 메소드에 @ResponseBody 애노테이션 붙여서 응답할 때도 객체는 JSON형식으로 자동으로 되었다. 
+위와 같이, 응답은 자동으로 json형식으로 넘어가게 된다. @Controller클래스 메소드에 @ResponseBody 애노테이션 붙여서 응답할 때도 객체는 JSON형식으로 자동으로 되었다.  
+위와같이 자동변환되는 원인은 MappingJackson2HttpMessageConverter 라는 메시지 컨버터가 있기 때문이다.
+```
+--pom.xml--
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.6.3</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.6.3</version>
+</dependency>
+```
+```
+--servlet.xml--
+<mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+```
 
 @Controller : API와 뷰를 동시에 사용, 대신 API 서비스는 @ResponseBody를 붙여줘야 함
 
