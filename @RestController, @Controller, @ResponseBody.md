@@ -48,7 +48,7 @@ Transfer-Encoding:chunked
 ```
 {"name":"홍길동","password":"1234"}
 ```
-위와 같이, 응답은 자동으로 json형식으로 넘어가게 된다.
+위와 같이, 응답은 자동으로 json형식으로 넘어가게 된다. @Controller클래스 메소드에 @ResponseBody 애노테이션 붙여서 응답할 때도 객체는 JSON형식으로 자동으로 되었다. 
 
 @Controller : API와 뷰를 동시에 사용, 대신 API 서비스는 @ResponseBody를 붙여줘야 함
 
