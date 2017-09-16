@@ -4,7 +4,7 @@
 ```
 http://localhost:8080/account?id=1234&username=홍길동
 ```
-이런식으로 넘겨주면, 해당 파라미터 정보를 그대로 JSON으로 반환해주는 API가 있다고 가정한다.  
+이런식으로 넘겨주면, 해당 파라미터 정보를 그대로 JSON으로 응답해주는 API가 있다고 가정한다.  
 ```
 {"id":1234,"username":"홍길동","password":null,"email":null,"fullName":null,"joined":null,"updated":null}
 ```
