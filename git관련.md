@@ -5,3 +5,8 @@
 <code>git rm -r --cached .</code>  
 <code>git add .</code>  
 <code>git commit -m "gitignore 재적용"</code>
+
+# IntelliJ에서 원격저장소에 있는 파일들을 로컬로 가져오는 법
+
+VCS-> Checkout from version control -> GitHub  
+Git Repository URL 선택 후, 디렉토리 선택 한 뒤, Clone버튼 클릭
