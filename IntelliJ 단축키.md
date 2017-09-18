@@ -10,4 +10,5 @@ Ctrl + Space : Basic code completion
 Ctrl + Shift + Space : Smart code completion 
 Ctrl + Q : Quick documentation lookup
 Ctrl + P : Parameter info (within method call arguments)
+Alt + Insert : Generate getters/setters
 ```
