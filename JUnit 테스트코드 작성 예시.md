@@ -1,4 +1,4 @@
-# 테스트코드 작성 예시
+# JUnit 테스트코드 작성 예시
 
 @Transactional  
 - 테스트클래스에 @Transactional이 붙어있어야, 기본적으로 각 @Test 메서드별로 DB롤백이 된다.
