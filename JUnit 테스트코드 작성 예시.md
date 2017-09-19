@@ -64,4 +64,4 @@ public class AccountControllerTest {
     }
 }
 ```
-두 Test가 순차적으로 수행되며, 첫 번째 테스트(Created)와 두 번째 테스트(BadResquest) 모두 성공한다.
+두 Test가 순차적으로 수행되며, 첫 번째 테스트 createAccount1 (첫유저생성후 DB COMMIT)와 두 번째 테스트 createAccount2 (첫유저와 동일한 유저생성요청 - DB에 동일한 유저가 존재해서 실패예측)가 모두 성공한다.
