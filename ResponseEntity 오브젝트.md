@@ -7,6 +7,4 @@ ResponseEntity 오브젝트는
 
 ResponseEntity를 반환하는 것이면,   
 그 내용을 HTTP응답에 삽입하는 것은 명확하므로, @ResponseBody를 설정할 필요가 없다.  
-statusCode도 삽입을 해줄 수 있므로,@ResponseStatus를 설정할 필요 없다.  
-
-@ResponseStatus를 사용하는 방법은, 응답의 상태가 고정이므로, 한 리퀘스트에 대해서 응답이 하나일 경우에만 사용한다. 예외처리 등..
+statusCode도 삽입을 해줄 수 있므로,@ResponseStatus를 설정할 필요 없다. (@ResponseStatus를 사용하면 응답의 상태가 고정이므로, 한 리퀘스트에 대해서 응답이 하나일 경우에만 사용한다. 예외처리 등..)
