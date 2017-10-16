@@ -113,3 +113,31 @@ static Juice makeJuice(FruitBox<Apple> box){
 위와 같이 오버로딩하면, 컴파일 에러가 발생한다. 지네릭 타입이 다른 것만으로는 오버로딩이 성립하지 않기 때문이다.
 
 ### 지네릭 타입은 컴파일러가 컴파일 할 때만 사용하고 제거해버리기 때문이다.
+
+# 와일드카드
+
+매개변수를 기재시 지네릭을 사용할 때에 다이아몬드 표기(<>) 속에 물음표(?)로 표현되며, 어떤 타입도 될 수 있다는 것을 의미한다.
+
+```
+<? extends T> : 와일드 카드의 상한 제한. T와 그 자손들만 가능
+<? super T>   : 와일드 카드의 하한 제한. T와 그 조상들만 가능
+<?>	      :	제한 없음. 모든 타입이 가능. <? extends Object>와 동일
+```
+
+와일드 카드를 사용해서 makeJuice()의 매개변수 타입을 바꾸면 다음과 같이 된다.
+
+```
+class Juicer{
+	static Juice makeJuice(FruitBox<? extends Fruit> box){
+		String tmp = "";
+		for(Fruit f : box.getList()) tmp += f+ " ";
+		return new Juice(tmp);
+	}
+}
+
+FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+FruitBox<Apple> appleBox = new FruitBox<Apple>();
+
+System.out.println(Juicer.makeJuice(fruitBox)) //가능
+System.out.println(Juicer.makeJuice(appleBox)) //가능
+```
