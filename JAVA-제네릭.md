@@ -96,7 +96,24 @@ public class GenericDemo {
 }
 ```
 # 오버로딩시 지네릭을 사용할 수 있는가
+```
+class Juicer{
+	static Juice makeJuice(FruitBox<Fruit> box){
+		String tmp = "";
+		for(Fruit f : box.getList()) tmp += f+ " ";
+		return new Juice(tmp);
+	}
+}
 
+FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+FruitBox<Apple> appleBox = new FruitBox<Apple>();
+
+System.out.println(Juicer.makeJuice(fruitBox)) //가능
+System.out.println(Juicer.makeJuice(appleBox)) //에러.
+```
+
+위와같이, 매개변수에 지네릭 타입을 'FruitBox<Fruit>'로 고정해놓으면, FruitBox<Apple>'타입의 객체는 매개변수가 될 수 없으므로, 오버로딩을 시도해보면...
+	
 ```
 static Juice makeJuice(FruitBox<Fruit> box){
 	String tmp = "";
