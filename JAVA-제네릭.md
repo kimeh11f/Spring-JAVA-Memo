@@ -108,8 +108,8 @@ class Juicer{
 FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
 FruitBox<Apple> appleBox = new FruitBox<Apple>();
 
-System.out.println(Juicer.makeJuice(fruitBox)) //가능
-System.out.println(Juicer.makeJuice(appleBox)) //에러.
+System.out.println(Juicer.makeJuice(fruitBox)) //가능. FruitBox<Fruit>
+System.out.println(Juicer.makeJuice(appleBox)) //에러. FruitBox<Apple>
 ```
 
 위와같이, 매개변수에 지네릭 타입을 'FruitBox\<Fruit\>'로 고정해놓으면, 'FruitBox\<Apple\>'타입의 객체는 매개변수가 될 수 없으므로, 오버로딩을 시도해보면...
