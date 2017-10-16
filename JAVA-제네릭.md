@@ -1,6 +1,6 @@
-# JAVA-제네릭  
+# JAVA-지네릭스  
 
-제네릭의 사용 이유는, 만약 아래와 같이 중복된 코드를 리팩토링을 하여 하나의 클래스로 줄였을 때에, 컴파일 단계에서 타입체크를 하기 위함이다.
+지네릭의 사용 이유는, 만약 아래와 같이 중복된 코드를 리팩토링을 하여 하나의 클래스로 줄였을 때에, 컴파일 단계에서 타입체크를 하기 위함이다.
 
 ```
 class StudentInfo{
@@ -60,7 +60,7 @@ public class GenericDemo {
 }
 ```
 컴파일시, 오류를 검출할 수 있어야지만, 컴파일 언어가 제공하는 혜택을 받을 수 있다.  
-그렇기 때문에, 제네릭을 사용한다.  
+그렇기 때문에, 지네릭을 사용한다.  
 
 ```
 class StudentInfo{
@@ -85,10 +85,29 @@ class Person<T, S>{
 public class GenericDemo {
 
 	public static void main(String[] args){
-		Person<EmployeeInfo, int> p1 = new Person<EmployeeInfo, int>(new EmployeeInfo(1), 1); //제네릭에 올 수 있는 데이터 타입은 레퍼런스 타입만 올 수 있기에, 에러.
+		Person<EmployeeInfo, int> p1 = new Person<EmployeeInfo, int>(new EmployeeInfo(1), 1); //지네릭에 올 수 있는 데이터 타입은 레퍼런스 타입만 올 수 있기에, 에러.
 		Integer id = new Integer(1);
 		Person<EmployeeInfo, Integer>p1 = new Person<EmployeeInfo, Integer>(new EmployeeInfo(1), id); //기본데이터타입 대신 wrapper클래스 사용.
 		System.out.println(p1.id.intValue()); //intValue()함수를 사용해서 기본데이터 타입의 값으로 출력.
 	}
 }
 ```
+# 오버로딩시 지네릭을 사용할 수 있는가
+
+```
+static Juice makeJuice(FruitBox<Fruit> box){
+	String tmp = "";
+	for(Fruit f : box.getList()) tmp += f+ " ";
+	return new Juice(tmp);
+}
+
+static Juice makeJuice(FruitBox<Apple> box){
+	String tmp = "";
+	for(Fruit f : box.getList()) tmp += f+ " ";
+	return new Juice(tmp);
+}
+```
+위와 같이 오버로딩하면, 컴파일 에러가 발생한다. 지네릭 타입이 다른 것만으로는 오버로딩이 성립하지 않기 때문이다.
+
+### 지네릭 타입은 컴파일러가 컴파일 할 때만 사용하고 제거해버린다.
+
