@@ -158,3 +158,5 @@ FruitBox<Apple> appleBox = new FruitBox<Apple>();
 System.out.println(Juicer.makeJuice(fruitBox)) //가능
 System.out.println(Juicer.makeJuice(appleBox)) //가능
 ```
+
+# 지네릭 타입의 형변환
