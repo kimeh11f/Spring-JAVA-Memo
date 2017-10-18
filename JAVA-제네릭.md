@@ -129,7 +129,7 @@ static Juice makeJuice(FruitBox<Apple> box){
 ```
 위와 같이 오버로딩하면, 컴파일 에러가 발생한다. 지네릭 타입이 다른 것만으로는 오버로딩이 성립하지 않기 때문이다.
 
-### 지네릭 타입은 컴파일러가 컴파일 할 때만 사용하고 제거해버리기 때문이다.
+### 지네릭 타입은 컴파일러가 컴파일 할 때만 사용하고 제거해버리기 때문이다. (.class파일에는 이전소스와의 호환성을 위해 지네릭타입이 제거되고, 대신 타입매개변수로 온 타입으로 소스가 치환됨)
 
 # 와일드카드
 
@@ -160,3 +160,38 @@ System.out.println(Juicer.makeJuice(appleBox)) //가능
 ```
 
 # 지네릭 타입의 형변환
+```
+public class Box<T> {
+    ArrayList<T> list = new ArrayList<>();
+    void add(T item){
+        list.add(item);
+    }
+    T get (int i){
+        return list.get(i);
+    }
+    ArrayList<T> getList(){
+        return list;
+    }
+    int size(){
+        return list.size();
+    }
+    public String toString(){
+        return list.toString();
+    }
+}
+```
+위와같이, Box라는 지네릭타입을 선언 후...
+```
+        Box<String> strBox = new Box<String>();
+        Box box = new Box();
+        Box<Object> objBox = new Box<Object>();
+
+        strBox = (Box<String>)box; //unchecked cast 경고
+        box = (Box)strBox;
+
+        objBox = (Box<Object>)strBox; //에러. 캐스팅 불가.
+        strBox = (Box<String>)objBox; //에러. 캐스팅 불가.
+```
+지네릭타입->원시타입 : 형변환 가능(Object타입 매개변수 인것 처럼 변환)  
+원시타입->지네릭타입 : 형변환 가능(unchecked캐스팅 경고. 컴파일은 되나, 런타임 에러 발생 가능)  
+지네릭타입->지네릭타입 : 타입매개변수가 Object타입일지라도, 컴파일 에러    
