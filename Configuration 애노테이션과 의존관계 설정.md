@@ -38,7 +38,8 @@ AppicationContext ctx = new AnnotationConfigWebApplicationContext(JavaConf.class
 AppicationContext ctx = new AnnotationConfigWebApplicationContext(JavaConf.class, JavaConf2.class); //자바설정파일이 두개이상일 경우
 ```
 위와같이, 애플리케이션 컨텍스트를 AnnotationConfigApplicationContext나 AnnotationConfigWebApplicationContext 로  
-JAVA클래스파일로 했을경우, 애노테이션을 통한 DI 설정은 자동으로 활성화된다.
+JAVA클래스파일로 했을경우, 애노테이션을 통한 DI 설정은 자동으로 활성화된다.  
+(자바설정을 사용할 경우, 애노테이션을 이용한 자동 주입기능이 활성화된다. XML설정에서는 @Autowired 애노테이션이나 @Resource 애노테이션에 대한 자동 주입 기능을 사용하려면 <code>\<context:annotation-config\></code>설정을 추가해야했다.)  
 JAVA설정에서 XML설정을 임포트하려면
 ```
 @Configuration
