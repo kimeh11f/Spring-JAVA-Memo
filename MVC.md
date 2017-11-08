@@ -35,4 +35,4 @@ DispatcherServlet은 모든 요청에 대해 공통적으로 진행해야하는 
 2. DispatcherServlet에서 컨트롤러로 HTTP요청 위임  
 DispatcherServlet은 URL이나 파라미터 정보, HTTP명령 등을 참고로 해서 어떤 컨트롤러에게 작업을 위임할지 결정한다. 컨트롤러를 선정하는 것은 DispatcherServlet의 핸들러 매핑 전략을 이용한다.
 핸들러는 스프링에서 컨트롤러를 의미한다.(요청을 다룬다는 의미). 어떤 컨트롤러가 요청을 처리하게 할지를 결정했다면, 해당 컨트롤러 오브젝트의 메소드를 호출해서 실제로 웹 요청을 처리하는 작업을 위임할 차례다. DispatcherServlet은 어떤 종류의 오브젝트라도 컨트롤러로 사용할 수 있다. 다만, 제각각 다른 메소드와 포맷을 가진 컨트롤러를 알아서 호출하게 만들기 위하여 중간에 어댑터를 이용하여 호출한다.  
-DispatcherServlet이 핸들러 어댑터에 웹 요청을 전달할 때는 모든 웹 요청정보가 담긴 HttpServletRequest 타입의 오브젝트를 전달해준다. 이를 어댑터가 적절히 변환해서 컨트롤러의 메소드가 받을 수 있는 파라미터로 변환해서 전달해준다. HttpServletRequest도 함께 전달해주는데, 드물지만 컨트롤러가 결과를 리턴값으로 돌려주는 대신 HttpServletResponse 오브젝트 안에 직접 넣어줄 수도 있기 때문이다.
+DispatcherServlet이 핸들러 어댑터에 웹 요청을 전달할 때는 모든 웹 요청정보가 담긴 HttpServletRequest 타입의 오브젝트를 전달해준다. 이를 어댑터가 적절히 변환해서 컨트롤러의 메소드가 받을 수 있는 파라미터로 변환해서 전달해준다. HttpServletResponse도 함께 전달해주는데, 드물지만 컨트롤러가 결과를 리턴값으로 돌려주는 대신 HttpServletResponse 오브젝트 안에 직접 넣어줄 수도 있기 때문이다.
