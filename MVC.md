@@ -36,7 +36,7 @@ DispatcherServlet이 핸들러 어댑터에 웹 요청을 전달할 때는 모�
 	- 어떤 뷰를 사용할지 결정
 	- DispatcherServlet에 모델과 뷰 전달(컨트롤러가 뷰 오브젝트를 직접 리턴할 수도 있지만, 보통은 뷰의 논리적인 이름을 리턴해주면 DispatcherServlet의 전략인 뷰 리졸버가 이를 이용해 뷰 오브젝트를 생성해준다.) 스프링의 ModelAndView라는 오브젝트가 DispatcherServlet이 최종적으로 어댑터를 통해 컨트롤러로부터 돌려받는 오브젝트다.
 
-4. DispatcherServlet의 뷰 호출
+4. DispatcherServlet의 뷰 호출  
 DispatcherServlet은 컨트롤러로부터 모델과 뷰를 받은 뒤, 뷰 오브젝트에게 모델을 전달해주고 클라이언트에게 돌려줄 최종결과물을 생성해달라고 요청한다.  
 보통은 브라우저에서 나타날 HTML을 생성하는 일이 가장 흔한 뷰의 작업이다.  
 JSP를 이용해서 결과물을 만들어주는 JstlView는 컨트롤러가 돌려준 JSP 뷰 템플릿의 이름을 가져다 HTML을 생성한다. 그 중에 동적으로 생성되도록 표시된 부분은 모델의 내용을 참고로 해서 내용을 채워준다. 예를들어, Jstl은 JSP에서 다음과 같은 내용을 만나면 모델의 name에 해당하는 값을 가져와 ${name}자리에 대신 넣어준다. 뷰 작업을 통한 최종 결과물은 HttpServletResponse 오브젝트 안에 담긴다. 
