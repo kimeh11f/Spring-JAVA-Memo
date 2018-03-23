@@ -5,3 +5,7 @@
 
 ### 사용 이유
 기존의 값을 불러서 update 등 DB처리를 할 때, 우선 불러온 값들을 세션에 저장해놓고, update시에는 세션에 있었던 값 전체를 모델에 할당후, 사용자가 update 할 부분들만 모델에 추가로 set하여, null 업데이트를 방지할 수 있다.
+
+## @ModelAttribute
+@ModelAttribute가 설정된 메소드는@RequestMapping 어노테이션이 적용된 메소드보다 먼저 호출된다. 
+그리고 @ModelAttibute 메소드 실행 결과로 리턴된 객체는 자동으로 Model에 저장된다. 따라서, 해당객체는 view페이지에서 사용할 수 있다.
