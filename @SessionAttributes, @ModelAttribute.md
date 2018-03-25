@@ -8,4 +8,4 @@
 
 ## @ModelAttribute
 @ModelAttribute가 설정된 메소드는@RequestMapping 어노테이션이 적용된 메소드보다 먼저 호출된다. 
-그리고 @ModelAttibute 메소드 실행 결과로 리턴된 객체는 자동으로 Model에 저장된다. 따라서, 해당객체는 view페이지에서 사용할 수 있다.
+그리고 @ModelAttibute 메소드 실행 결과로 리턴된 객체는 자동으로 Model에 저장된다. 따라서, 해당객체는 view페이지에서 사용할 수 있다. 매개변수에 사용시, 해당 매개변수는 model에 저장된다.
